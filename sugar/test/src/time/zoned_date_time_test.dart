@@ -834,7 +834,7 @@ void main() {
   test(
     'epochMicroseconds',
     () => expect(
-        ZonedDateTime(singapore, 2023, 1, 2, 3, 4, 5, 6, 7).epochMicroseconds,
-        DateTime.utc(2023, 1, 1, 19, 4, 5, 6, 7).microsecondsSinceEpoch),
+        ZonedDateTime(singapore, 2023, 1, 2, 3, 4, 5, 6, 7).epochMilliseconds,
+        DateTime.utc(2023, 1, 1, 19, 4, 5, 6, 7).millisecondsSinceEpoch),
   );
 }

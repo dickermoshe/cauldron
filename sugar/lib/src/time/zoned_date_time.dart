@@ -132,6 +132,7 @@ final class ZonedDateTime extends DateTimeBase {
   final EpochMicroseconds epochMicroseconds;
   String? _string;
 
+  /// The offset for the current date-time.
   Offset get offset => Offset.fromMicroseconds(
       timezone.offset(epochMicroseconds ~/ 1000) * 1000);
 
@@ -218,8 +219,10 @@ final class ZonedDateTime extends DateTimeBase {
               microsecond));
 
   factory ZonedDateTime._convert(Timezone timezone, DateTime date) {
-    final microseconds = date.microsecondsSinceEpoch -
-        (timezone.offset(date.microsecondsSinceEpoch ~/ 1000) * 1000);
+    final microseconds = timezone.convert(local: date.millisecondsSinceEpoch)*1000;
+    
+    
+
     return ZonedDateTime._(timezone, microseconds);
   }
 
